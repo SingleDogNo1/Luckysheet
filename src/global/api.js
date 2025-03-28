@@ -5935,7 +5935,6 @@ export function getAllChartsBase64(cb) {
                 }})
 
                 chartMap[item.index][chartInfo.chart_id] = chartInstance
-                
             });
 
         }
@@ -5951,13 +5950,10 @@ export function getAllChartsBase64(cb) {
                         sheet[chart_id] = chartInstance.getDataURL();
                     }
                 }
-                
             }
         }
         cb && cb(chartMap)
-        
     }, 500);
-    
 }
 
 /**

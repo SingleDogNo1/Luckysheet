@@ -1737,7 +1737,7 @@ const luckysheetformula = {
         $("#luckysheet-formula-functionrange .luckysheet-formula-functionrange-highlight").remove();
         $("#luckysheet-input-box").removeAttr("style");
         $("#luckysheet-input-box-index").hide();
-        $("#luckysheet-wa-functionbox-cancel, #luckysheet-wa-functionbox-confirm").removeClass(
+        $("#luckysheet-wa-functionbox-cancel, #luckysheet-wa-functionbox-confirm, #luckysheet-wa-functionbox-fx").removeClass(
             "luckysheet-wa-calculate-active",
         );
 
@@ -6161,8 +6161,6 @@ const luckysheetformula = {
                 this.hideButton()
             }
         }
-
-        
     },
     addButtonListener:function(txt, r, c){
         let listener =  $("#luckysheet-formula-refresh").data("listener")
@@ -6176,7 +6174,6 @@ const luckysheetformula = {
                 e.stopPropagation();
             })
         }
-        
     },
     showButton: function(r, c) {
 
@@ -6191,7 +6188,7 @@ const luckysheetformula = {
         if(!!margeset){
             row = margeset.row[1];
             row_pre = margeset.row[0];
-            
+
             col = margeset.column[1];
             col_pre = margeset.column[0];
         }
