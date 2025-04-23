@@ -1357,8 +1357,8 @@ export function rowColumnOperationInitial() {
 
         let st_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][0];
 
-		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "lefttop", Store.luckysheetRightHeadClickIs)){ 
-			return; 
+		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "lefttop", Store.luckysheetRightHeadClickIs)){
+			return;
 		}
 		luckysheetextendtable(Store.luckysheetRightHeadClickIs, st_index, value, "lefttop");
 
@@ -1375,8 +1375,8 @@ export function rowColumnOperationInitial() {
 
         let st_index = Store.luckysheet_select_save[0].row[0];
 
-		if(!method.createHookFunction("rowInsertBefore",  st_index, 1, "lefttop", Store.luckysheetRightHeadClickIs)){ 
-			return; 
+		if(!method.createHookFunction("rowInsertBefore",  st_index, 1, "lefttop", Store.luckysheetRightHeadClickIs)){
+			return;
 		}
         luckysheetextendtable('row', st_index, 1, "lefttop");
 
@@ -1584,7 +1584,7 @@ export function rowColumnOperationInitial() {
         let st_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][1];
 
 		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "rightbottom", Store.luckysheetRightHeadClickIs)){
-			return; 
+			return;
 		}
 
         luckysheetextendtable(Store.luckysheetRightHeadClickIs, st_index, value, "rightbottom");
@@ -1732,10 +1732,11 @@ export function rowColumnOperationInitial() {
             ed_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][1];
 
         if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index, Store.luckysheetRightHeadClickIs)){
-        	return; 
+        	return;
 
         }
         luckysheetdeletetable(Store.luckysheetRightHeadClickIs, st_index, ed_index);
+        method.createHookFunction("rangeDeleteAfter", st_index, ed_index, Store.luckysheetRightHeadClickIs);
     });
     $("#luckysheet-delRows").click(function(event) {
         $("#luckysheet-rightclick-menu").hide();
@@ -1764,9 +1765,10 @@ export function rowColumnOperationInitial() {
             ed_index = Store.luckysheet_select_save[0].row[1];
 
 		if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index, 'row')){
-			return; 
+			return;
 		}
         luckysheetdeletetable('row', st_index, ed_index);
+        method.createHookFunction("rangeDeleteAfter", st_index, ed_index, Store.luckysheetRightHeadClickIs);
     })
     $("#luckysheet-delCols").click(function (event) {
 
@@ -1795,6 +1797,7 @@ export function rowColumnOperationInitial() {
         let st_index = Store.luckysheet_select_save[0].column[0],
             ed_index = Store.luckysheet_select_save[0].column[1];
         luckysheetdeletetable("column", st_index, ed_index);
+        method.createHookFunction("rangeDeleteAfter", st_index, ed_index, Store.luckysheetRightHeadClickIs);
     });
 
     //隐藏选中行列
